@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-paper text-ink dark:bg-paper-dark dark:text-ink-dark antialiased; }
+:focus-visible { outline: 2px solid #2F4FE0; outline-offset: 3px; }
+.dark :focus-visible { outline-color: #7C93FF; }
+
+@keyframes stage-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.stage { opacity: 0; animation: stage-in .5s ease forwards; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .stage { opacity: 1; animation: none; }
+}
